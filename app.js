@@ -54,9 +54,9 @@ function increaseCheese() {
   drawCheese()
 }
 
-function totalClickUpgradeBonus() {
-  clickUpgradeBonus
-}
+// function totalClickUpgradeBonus() {
+//   clickUpgradeBonus
+// }
 
 
 // let total = 0
@@ -164,7 +164,12 @@ function drawCheese() {
 
 function drawClickBonus() {
   const increaseClickBonusElm = document.getElementById('clickBonus')
-  increaseClickBonusElm.innerText = (clickUpgrades[0].bonus * clickUpgrades[0].quantity) += (clickUpgrades[1].bonus * clickUpgrades[1].quantity).toString()
+  for (let i = 0; i < clickUpgrades.length; i++) {
+    const upgrade = clickUpgrades[i];
+    if (upgrade.quantity > 0) {
+      increaseClickBonusElm.innerText == upgrade.bonus * upgrade.quantity
+    }
+  }
 }
 
 // function drawClickBonus() {
