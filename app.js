@@ -52,13 +52,40 @@ function increaseCheese() {
     cheese += autoUpgrades[1].bonus * autoUpgrades[1].quantity
   }
   drawCheese()
-  // drawClickBonus()
+
+}
+
+function increaseClickBonus() {
+  let totalClickBonus = 0
+
+  for (let i = 0; i < clickUpgrades.length; i++) {
+    const clickUpgrade = clickUpgrades[i];
+    totalClickBonus += clickUpgrade.bonus
+    console.log(clickUpgrade.bonus)
+  }
+  return totalClickBonus
+}
+// if (clickUpgrades[0].quantity > 0) {
+//   cheese += clickUpgrades[0].bonus * clickUpgrades[0].quantity
+// }
+// if (clickUpgrades[1].quantity > 0) {
+//   cheese += clickUpgrades[1].bonus * clickUpgrades[1].quantity
+// // }
+// drawClickBonus()
+
+
+function increaseAutoBonus() {
+  cheese = 0
+  if (autoUpgrades[0].quantity > 0) {
+    cheese += autoUpgrades[0].bonus * autoUpgrades[0].quantity
+  }
+  if (autoUpgrades[1].quantity > 0) {
+    cheese += autoUpgrades[1].bonus * autoUpgrades[1].quantity
+  }
+  drawAutoBonus()
 }
 
 
-// function calcClickBonus() {
-
-// }
 
 function buyKnife() {
   if (cheese >= clickUpgrades[0].price) {
@@ -96,17 +123,6 @@ function buySpaceStation() {
   }
 }
 
-
-
-// function collectAutoUpgrades() {
-//   // for (let i = 0; i < autoUpgrades.length; i++) {
-//   //   const autoIncrease = autoUpgrades[i]
-
-//   //   let autoIncrease = autoUpgrades[i].bonus
-
-// }
-// }
-
 //#endregion
 
 
@@ -117,34 +133,42 @@ function drawCheese() {
   increaseCheeseElm.innerText = cheese.toString()
 }
 
-// function drawClickBonus() {
-//   const increaseClickBonusElm = document.getElementById('clickBonus')
-//   increaseClickBonusElm.innerText = cheese.toString()
-// }
+function drawClickBonus() {
+  for (let i = 0; i < clickUpgrades.length; i++) {
+    const clickUpgrade = clickUpgrades[i];
+    const clickBonusElm = document.getElementById('clickBonus')
+    clickBonusElm.innerText = clickUpgrade.bonus
+  }
 
-// function drawAutoBonus() {
-//   const increaseAutoBonusElm = document.getElementById('autoBonus')
-//   increaseAutoBonusElm.innerText = cheese.toString()
-// }
+  //   let clickBonus = (clickUpgrades[0].bonus * clickUpgrades[0].quantity)
+  //   const clickBonusElm = document.getElementById('clickBonus')
+  //   clickBonusElm.innerText = clickBonus.toString
+  //   // }
+  // }
 
-function drawKnives() {
-  const increaseKnivesElm = document.getElementById('knifeTotal')
-  increaseKnivesElm.innerText = clickUpgrades[0].quantity.toString()
-}
+  // function drawAutoBonus() {
+  //   const autoBonusElm = document.getElementById('autoBonus')
+  //   autoBonusElm.innerText = autoBonus.toString
+  // }
 
-function drawDrills() {
-  const increaseDrillsElm = document.getElementById('drillTotal')
-  increaseDrillsElm.innerText = clickUpgrades[1].quantity.toString()
-}
-function drawMousetronauts() {
-  const increaseMousetronautsElm = document.getElementById('mousetronautTotal')
-  increaseMousetronautsElm.innerText = autoUpgrades[0].quantity.toString()
-}
+  function drawKnives() {
+    const increaseKnivesElm = document.getElementById('knifeTotal')
+    increaseKnivesElm.innerText = clickUpgrades[0].quantity.toString()
+  }
 
-function drawSpaceStations() {
-  const increaseSpaceStationsElm = document.getElementById('spaceStationTotal')
-  increaseSpaceStationsElm.innerText = autoUpgrades[1].quantity.toString()
-}
+  function drawDrills() {
+    const increaseDrillsElm = document.getElementById('drillTotal')
+    increaseDrillsElm.innerText = clickUpgrades[1].quantity.toString()
+  }
+  function drawMousetronauts() {
+    const increaseMousetronautsElm = document.getElementById('mousetronautTotal')
+    increaseMousetronautsElm.innerText = autoUpgrades[0].quantity.toString()
+  }
 
-// setInterval(collectAutoUpgrades, 3000);
+  function drawSpaceStations() {
+    const increaseSpaceStationsElm = document.getElementById('spaceStationTotal')
+    increaseSpaceStationsElm.innerText = autoUpgrades[1].quantity.toString()
+  }
+
+// setInterval(increaseAutoUpgrades, 3000);
 //#endregion
