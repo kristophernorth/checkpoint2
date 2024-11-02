@@ -4,30 +4,30 @@ let cheese = 0;
 let clickUpgrades = [
   {
     name: 'knife',
-    price: 10,
+    price: 5,
     quantity: 0,
-    bonus: 1
+    bonus: 10
   },
   {
     name: 'drill',
-    price: 15,
+    price: 10,
     quantity: 0,
-    bonus: 10
+    bonus: 15
   }
 ];
 
 let autoUpgrades = [
   {
     name: 'mousetronaut',
-    price: 25,
+    price: 15,
     quantity: 0,
-    bonus: 100
+    bonus: 20
   },
   {
-    name: 'rover',
-    price: 30,
+    name: 'spaceStation',
+    price: 20,
     quantity: 0,
-    bonus: 500
+    bonus: 50
   }
 ];
 
@@ -75,7 +75,7 @@ function buyMousetronaut() {
   }
 }
 
-function buySpaceStations() {
+function buySpaceStation() {
   console.log(autoUpgrades[1].name)
   if (cheese >= autoUpgrades[1].price) {
     autoUpgrades[1].quantity += 1
@@ -108,6 +108,17 @@ function drawDrills() {
   const increaseDrillsElm = document.getElementById('drillTotal')
   console.log('drillTotal', increaseDrillsElm)
   increaseDrillsElm.innerText = clickUpgrades[1].quantity.toString()
+}
+function drawMousetronauts() {
+  const increaseMousetronautsElm = document.getElementById('mousetronautTotal')
+  console.log('mousetronautTotal', increaseMousetronautsElm)
+  increaseMousetronautsElm.innerText = autoUpgrades[0].quantity.toString()
+}
+
+function drawSpaceStations() {
+  const increaseSpaceStationsElm = document.getElementById('spaceStationTotal')
+  console.log('spaceStationTotal', increaseSpaceStationsElm)
+  increaseSpaceStationsElm.innerText = autoUpgrades[1].quantity.toString()
 }
 
 //#endregion
