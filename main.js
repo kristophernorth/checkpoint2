@@ -54,65 +54,9 @@ function increaseCheese() {
   drawCheese()
 }
 
-function totalClickUpgradeBonus() {
-  clickUpgradeBonus
-}
-
-
-// let total = 0
-// for (let i = 0; i < clickUpgrades.length; i++) {
-//   const item = clickUpgrades[i];
-//   total += item.bonus * item.quantity
+// function totalClickUpgradeBonus() {
+//   clickUpgradeBonus
 // }
-// return total
-// function increasePrice() {
-
-// }
-
-// function calcClickBonus() {
-//   cheese += 1
-//   if (clickUpgrades[0].quantity > 0) {
-//     cheese += clickUpgrades[0].bonus * clickUpgrades[0].quantity
-//   }
-//   if (clickUpgrades[1].quantity > 0) {
-//     cheese += clickUpgrades[1].bonus * clickUpgrades[1].quantity
-//   }
-//   drawClickBonus
-// }
-
-//   let totalKnifeBonus = clickUpgrades[0].quantity * clickUpgrades[0].bonus
-//   let totalDrillBonus = clickUpgrades[1].quantity * clickUpgrades[1].bonus
-//   let totalClickBonus = totalKnifeBonus += totalDrillBonus
-//   return totalClickBonus
-// }
-//   for (let i = 0; i < clickUpgrades.length; i++) {
-//     const clickUpgrade = clickUpgrades[i];
-//     totalClickBonus += clickUpgrade.bonus
-//     console.log(clickUpgrade.bonus)
-//   }
-//   return totalClickBonus
-// }
-// if (clickUpgrades[0].quantity > 0) {
-//   cheese += clickUpgrades[0].bonus * clickUpgrades[0].quantity
-// }
-// if (clickUpgrades[1].quantity > 0) {
-//   cheese += clickUpgrades[1].bonus * clickUpgrades[1].quantity
-// // }
-// drawClickBonus()
-
-
-// function increaseAutoBonus() {
-//   cheese = 0
-//   if (autoUpgrades[0].quantity > 0) {
-//     cheese += autoUpgrades[0].bonus * autoUpgrades[0].quantity
-//   }
-//   if (autoUpgrades[1].quantity > 0) {
-//     cheese += autoUpgrades[1].bonus * autoUpgrades[1].quantity
-//   }
-//   drawAutoBonus()
-// }
-
-
 
 function buyKnife() {
   if (cheese >= clickUpgrades[0].price) {
@@ -162,28 +106,11 @@ function drawCheese() {
   increaseCheeseElm.innerText = cheese.toString()
 }
 
-function drawClickBonus() {
-  const increaseClickBonusElm = document.getElementById('clickBonus')
-  increaseClickBonusElm.innerText = (clickUpgrades[0].bonus * clickUpgrades[0].quantity) += (clickUpgrades[1].bonus * clickUpgrades[1].quantity).toString()
-}
-
 // function drawClickBonus() {
-//   for (let i = 0; i < clickUpgrades.length; i++) {
-//     const clickUpgrade = clickUpgrades[i];
-//     const clickBonusElm = document.getElementById('clickBonus')
-//     clickBonusElm.innerText = clickUpgrade.bonus
-//   }
-
-//   let clickBonus = (clickUpgrades[0].bonus * clickUpgrades[0].quantity)
-//   const clickBonusElm = document.getElementById('clickBonus')
-//   clickBonusElm.innerText = clickBonus.toString
-//   // }
+//   const increaseClickBonusElm = document.getElementById('clickBonus')
+//   increaseClickBonusElm.innerText = cheese.toString()
 // }
 
-// function drawAutoBonus() {
-//   const autoBonusElm = document.getElementById('autoBonus')
-//   autoBonusElm.innerText = autoBonus.toString
-// }
 
 function drawKnives() {
   const increaseKnivesElm = document.getElementById('knifeTotal')
