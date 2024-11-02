@@ -37,6 +37,22 @@ let autoUpgrades = [
 
 //#region LOGIC
 // NOTE - can I do this much easier with a for-loop??
+
+function addClickUpgradeByName(clickUpgradeName) {
+  for (let i = 0; i < clickUpgrades.length; i++) {
+    const upgrade = clickUpgrades[i];
+    if (clickUpgradeName == upgrade.name) {
+      upgrade.quantity += 1
+    }
+  }
+}
+
+
+
+
+
+
+
 function increaseCheese() {
   cheese += 1
   if (clickUpgrades[0].quantity > 0) {
