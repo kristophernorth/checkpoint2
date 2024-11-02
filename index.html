@@ -24,7 +24,7 @@
         <h1>MOON MINER</h1>
       </div>
       <div class="col-12 text-center m-4 p-4">
-        <!-- SECTION - Moon image you clock on -->
+        <!-- SECTION - Moon image you click on to invoke logic -->
         <img onclick="increaseCheese()" src="https://jeremy-fowler.github.io/moon_miner/assets/img/Moon.svg" alt="">
       </div>
     </div>
@@ -40,8 +40,8 @@
         </div>
         <div class="col-md-2">
           <p class="bg-warning d-flex justify-content-between p-4">
-            <!-- SECTION - Location where moonClicks will increase/decrease -->
-            <span>🍕</span><span id="cheesePoints">0</span>
+            <!-- SECTION - CheesePoints increase/decrease -->
+            <span>🧀</span><span id="cheesePoints">0</span>
           </p>
         </div>
         <div class="col-md-1 bg-warning p-2">
@@ -61,14 +61,18 @@
                   <p>
                     CLICK UPGRADES
                   </p>
-                  <div class="card text-center m-2 p-2">
+                  <!-- SECTION - Knife box is turned blue and buyKnife function is invoked -->
+                  <p>Knife +1</p>
+                  <div id="earnedKnife" onclick="buyKnife()" class="card text-center m-2 p-2">
                     <p>
-                      <span>50</span><span>🍕</span>
+                      <!-- SECTION - Knife points drawn -->
+                      <span id="knifeCost">10</span><span>🧀</span>
                     </p>
                   </div>
-                  <div class="card text-center">
+                  <p>Drill +5</p>
+                  <div id="earnedDrill" onclick="buyDrill()" class="card text-center">
                     <p>
-                      <span>250</span><span>🍕</span>
+                      <span id="drillCost">15</span><span>🧀</span>
                     </p>
                   </div>
                 </div>
@@ -76,14 +80,16 @@
                   <p>
                     AUTOMATIC UPGRADES
                   </p>
-                  <div class="card text-center m-2 p-2">
+                  <p>Mousetronaut +1 / 3s</p>
+                  <div id="earnedMousetronaut" onclick="buyMoustronaut()" class="card text-center m-2 p-2">
                     <p>
-                      <span>1000</span><span>🍕</span>
+                      <span id="mousetronautCost">25</span><span>🧀</span>
                     </p>
                   </div>
-                  <div class="card text-center">
+                  <p>Space Station +100 / 3s</p>
+                  <div id="earnedSpaceStation" onclick="buySpaceStation()" class="card text-center">
                     <p>
-                      <span>50000</span><span>🍕</span>
+                      <span id="spaceStationCost">30</span><span>🧀</span>
                     </p>
                   </div>
                 </div>
@@ -97,12 +103,12 @@
                   </p>
                   <div class="card text-center m-2 p-2">
                     <p>
-                      <span class="border">0</span><span>Knife→</span><span class="border">0</span>
+                      <span id="knifeTotal" class="border">0</span><span>Knives→</span><span class="border">0</span>
                     </p>
                   </div>
                   <div class="card text-center">
                     <p>
-                      <span class="border">0</span><span>Drill→</span><span class="border">0</span>
+                      <span id="drillTotal" class="border">0</span><span>Drills→</span><span class="border">0</span>
                     </p>
                   </div>
                 </div>
@@ -112,12 +118,14 @@
                   </p>
                   <div class="card text-center m-2 p-2">
                     <p>
-                      <span class="border">0</span><span>Mousetronaut ⏰</span><span class="border">0</span>
+                      <span id="mounsetronautTotal" class="border">0</span><span>Mousetronaut ⏰</span><span
+                        class="border">0</span>
                     </p>
                   </div>
                   <div class="card text-center">
                     <p>
-                      <span class="border">0</span><span>Space Station ⏰</span><span class="border">0</span>
+                      <span id="spaceStationTotal" class="border">0</span><span>Space Station ⏰</span><span
+                        class="border">0</span>
                     </p>
                   </div>
                 </div>
