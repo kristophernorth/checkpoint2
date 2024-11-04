@@ -45,98 +45,40 @@ function increaseCheese() {
   if (clickUpgrades[1].quantity > 0) {
     cheese += clickUpgrades[1].bonus * clickUpgrades[1].quantity
   }
-  if (autoUpgrades[0].quantity > 0) {
-    cheese += autoUpgrades[0].bonus * autoUpgrades[0].quantity
-  }
-  if (autoUpgrades[1].quantity > 0) {
-    cheese += autoUpgrades[1].bonus * autoUpgrades[1].quantity
-  }
+
   drawCheese()
 }
 
-// function totalClickUpgradeBonus() {
-//   clickUpgradeBonus
-// }
-
-
-// let total = 0
-// for (let i = 0; i < clickUpgrades.length; i++) {
-//   const item = clickUpgrades[i];
-//   total += item.bonus * item.quantity
-// }
-// return total
-// function increasePrice() {
-
-// }
-
-// function calcClickBonus() {
-//   cheese += 1
-//   if (clickUpgrades[0].quantity > 0) {
-//     cheese += clickUpgrades[0].bonus * clickUpgrades[0].quantity
-//   }
-//   if (clickUpgrades[1].quantity > 0) {
-//     cheese += clickUpgrades[1].bonus * clickUpgrades[1].quantity
-//   }
-//   drawClickBonus
-// }
-
-//   let totalKnifeBonus = clickUpgrades[0].quantity * clickUpgrades[0].bonus
-//   let totalDrillBonus = clickUpgrades[1].quantity * clickUpgrades[1].bonus
-//   let totalClickBonus = totalKnifeBonus += totalDrillBonus
-//   return totalClickBonus
-// }
-//   for (let i = 0; i < clickUpgrades.length; i++) {
-//     const clickUpgrade = clickUpgrades[i];
-//     totalClickBonus += clickUpgrade.bonus
-//     console.log(clickUpgrade.bonus)
-//   }
-//   return totalClickBonus
-// }
-// if (clickUpgrades[0].quantity > 0) {
-//   cheese += clickUpgrades[0].bonus * clickUpgrades[0].quantity
-// }
-// if (clickUpgrades[1].quantity > 0) {
-//   cheese += clickUpgrades[1].bonus * clickUpgrades[1].quantity
-// // }
-// drawClickBonus()
-
-
-// function increaseAutoBonus() {
-//   cheese = 0
-//   if (autoUpgrades[0].quantity > 0) {
-//     cheese += autoUpgrades[0].bonus * autoUpgrades[0].quantity
-//   }
-//   if (autoUpgrades[1].quantity > 0) {
-//     cheese += autoUpgrades[1].bonus * autoUpgrades[1].quantity
-//   }
-//   drawAutoBonus()
-// }
 
 
 
+
+//FIXME - In all buy functions make the price of the upgrade increase
 function buyKnife() {
   if (cheese >= clickUpgrades[0].price) {
     clickUpgrades[0].quantity += 1
+    // clickUpgrades[0].price += 1
     cheese -= clickUpgrades[0].price
     drawKnives()
     drawCheese()
-    drawClickBonus()
   }
 }
 
 function buyDrill() {
   if (cheese >= clickUpgrades[1].price) {
     clickUpgrades[1].quantity += 1
+    // clickUpgrades[1].price += 1
+    //FIXME - add new line similar to above to increase price +1, for all buy functions
     cheese -= clickUpgrades[1].price
     drawDrills()
     drawCheese()
-    drawClickBonus()
   }
 }
 
 function buyMousetronaut() {
   if (cheese >= autoUpgrades[0].price) {
     autoUpgrades[0].quantity += 1
+    // autoUpgrades[0].price += 1
     cheese -= autoUpgrades[0].price
     drawMousetronauts()
     drawCheese()
@@ -146,10 +88,26 @@ function buyMousetronaut() {
 function buySpaceStation() {
   if (cheese >= autoUpgrades[1].price) {
     autoUpgrades[1].quantity += 1
+    // autoUpgrades[1].price += 1
     cheese -= autoUpgrades[1].price
     drawSpaceStations()
     drawCheese()
   }
+}
+
+
+// FIXME - Do not apply the auto upgrades here - For loop is best solution here (but not needed)
+// Move this below logic to a collect auto function
+//NOTE - call drawCheese in the collectAuto function
+
+function collectAuto() {
+  if (autoUpgrades[0].quantity > 0) {
+    cheese += autoUpgrades[0].bonus * autoUpgrades[0].quantity
+  }
+  if (autoUpgrades[1].quantity > 0) {
+    cheese += autoUpgrades[1].bonus * autoUpgrades[1].quantity
+  }
+  drawCheese()
 }
 
 //#endregion
@@ -162,33 +120,17 @@ function drawCheese() {
   increaseCheeseElm.innerText = cheese.toString()
 }
 
-function drawClickBonus() {
-  const increaseClickBonusElm = document.getElementById('clickBonus')
-  for (let i = 0; i < clickUpgrades.length; i++) {
-    const upgrade = clickUpgrades[i];
-    if (upgrade.quantity > 0) {
-      increaseClickBonusElm.innerText == upgrade.bonus * upgrade.quantity
-    }
-  }
-}
-
 // function drawClickBonus() {
-//   for (let i = 0; i < clickUpgrades.length; i++) {
-//     const clickUpgrade = clickUpgrades[i];
-//     const clickBonusElm = document.getElementById('clickBonus')
-//     clickBonusElm.innerText = clickUpgrade.bonus
-//   }
-
-//   let clickBonus = (clickUpgrades[0].bonus * clickUpgrades[0].quantity)
-//   const clickBonusElm = document.getElementById('clickBonus')
-//   clickBonusElm.innerText = clickBonus.toString
-//   // }
+//   const increaseClickBonusElm = document.getElementById('clickBonus')
+//   increaseClickBonusElm.innerText = 
 // }
+// FIXME - create a new variable ('let') and total up the upgrades. 
 
 // function drawAutoBonus() {
-//   const autoBonusElm = document.getElementById('autoBonus')
-//   autoBonusElm.innerText = autoBonus.toString
+//   const increaseClickBonusElm = document.getElementById('autoBonus')
+//   increaseClickBonusElm.innerText = cheese.toString()
 // }
+
 
 function drawKnives() {
   const increaseKnivesElm = document.getElementById('knifeTotal')
@@ -198,6 +140,10 @@ function drawKnives() {
 function drawDrills() {
   const increaseDrillsElm = document.getElementById('drillTotal')
   increaseDrillsElm.innerText = clickUpgrades[1].quantity.toString()
+  //FIXME - add another ID on page called "drill price" 
+  // get the drill price element by it's ID
+  // change the drill price elements innertext to the price of the drill object
+  //do this for all of tool-specific draw functions
 }
 function drawMousetronauts() {
   const increaseMousetronautsElm = document.getElementById('mousetronautTotal')
@@ -209,5 +155,8 @@ function drawSpaceStations() {
   increaseSpaceStationsElm.innerText = autoUpgrades[1].quantity.toString()
 }
 
-// setInterval(buySpaceStation, 3000);
+setInterval(collectAuto, 3000);
 //#endregion
+
+// TODO - Write another function that applies the bonuses from my auto upgrades.
+// TODO - set up an interval that will call "collectAuto"
