@@ -183,3 +183,4 @@ setInterval(collectAuto, 3000);
 
 // TODO - Write another function that applies the bonuses from my auto upgrades.
 // TODO - set up an interval that will call "collectAuto"
+
